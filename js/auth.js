@@ -110,7 +110,17 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   async function logout() {
-    await supabase.auth.signOut();
-    window.location.href = "index.html"; // ✅ back to login after logout
-  }
+    window.event?.preventDefault(); // Prevent default anchor behavior
+
+    const { error } = await supabase.auth.signOut();
+
+    if (error) {
+      console.error("Logout failed:", error);
+      alert("Logout failed: " + error.message);
+    }
+
+    // Redirect to login page regardless of error
+    window.location.replace("index.html");
+}
+});
 });
