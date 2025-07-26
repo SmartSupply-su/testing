@@ -117,7 +117,11 @@ document.addEventListener("DOMContentLoaded", async () => {
       return;
     }
 
-    // Force clear cache and redirect to login
+    // Clear local/session storage just in case
+    localStorage.clear();
+    sessionStorage.clear();
+
+    // Force reload to login page
     window.location.href = "index.html";
   }
 });
