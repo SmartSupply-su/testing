@@ -114,4 +114,3 @@ document.addEventListener("DOMContentLoaded", async () => {
     window.location.href = "index.html"; // ✅ back to login after logout
   }
 });
-});
